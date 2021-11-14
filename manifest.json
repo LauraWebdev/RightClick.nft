@@ -1,0 +1,44 @@
+{
+  "name": "RightClick.nft",
+  "description": "Right Click -> Save As, but as a browser extension!",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*.opensea.io/assets/*",
+        "https://*.opensea.io/assets/*"
+      ],
+      "js": ["./scripts/marketplaces/opensea.js"]
+    }
+  ],
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs",
+    "downloads"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "/images/inactive16.png",
+      "32": "/images/inactive32.png",
+      "48": "/images/inactive48.png",
+      "128": "/images/inactive128.png"
+    }
+  },
+  "icons": {
+    "16": "/images/active16.png",
+    "32": "/images/active32.png",
+    "48": "/images/active48.png",
+    "128": "/images/active128.png"
+  }
+}
